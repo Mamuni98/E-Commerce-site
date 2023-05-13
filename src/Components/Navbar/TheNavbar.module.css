@@ -1,12 +1,16 @@
-.home {
+.text {
   font-family: Georgia;
-  margin-left: 400px;
-  margin-right: 50px;
+  color: white;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
 }
-.store {
-  font-family: Georgia;
-  margin-right: 50px;
+.home .home-text .text-mlr {
+ margin-left: 430px;
+ margin-right: 20px;
 }
-.about {
-  font-family: Georgia;
+.store .store-text .text-mr{
+  margin-right: 20px;
 }
+/* margin-left: 400px;
+margin-right: 50px; */

@@ -1,7 +1,10 @@
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import React from "react";
 import GenericNav from "../Navbar/GenericNav";
 import Product from "./Product";
+import FooterNav from "../Navbar/FooterNav";
 import classes from "./Store.module.css";
+
 const productsArr = [
   {
     id: "a1",
@@ -61,54 +64,52 @@ const albumsArr = [
   },
 ];
 
-const Store = () => {
+const Store = (props) => {
   return (
     <>
       <GenericNav />
-      <div className={classes.heading}>
-        <h2>Merch</h2>
-      </div>
-      <Row xs={1} md={2} className="g-3">
-        {productsArr.map((product) => (
-          <Col style={{ paddingLeft: "135px" }}>
+      <Container>
+        <div className={classes.heading}>
+          <h2>Merch</h2>
+        </div>
+        <div className={classes.product}>
+          {productsArr.map((product) => (
             <Product
               key={product.id}
               title={product.title}
               price={product.price}
               image={product.imageUrl}
             />
-          </Col>
-        ))}
-      </Row>
-      <div className={classes.heading}>
-        <h2>Music</h2>
-      </div>
-      <Row xs={1} md={2} className="g-3">
-        {albumsArr.map((product) => (
-          <Col style={{ paddingLeft: "135px" }}>
+          ))}
+        </div>
+        <div className={classes.heading}>
+          <h2>Music</h2>
+        </div>
+        <div className={classes.product}>
+          {albumsArr.map((product) => (
             <Product
               key={product.id}
               title={product.title}
               price={product.price}
               image={product.imageUrl}
             />
-          </Col>
-        ))}
-      </Row>
-      <div className="text-center">
-        <Button
-          variant="secondary"
-          style={{
-            color: "aqua",
-            fontSize: "20px",
-            margin: "10px",
-            marginTop: "100px",
-          }}
-        >
-          See the cart
-        </Button>
-      </div>
+          ))}
+        </div>
+        <div className="text-center">
+          <Button
+            variant="secondary"
+            className={classes.showcart}
+            style={{ color: "aqua", fontSize: "20px" }}
+            onClick={props.showCart}
+          >
+            See the cart
+          </Button>
+        </div>
+      </Container>
+      <FooterNav />
     </>
   );
 };
 export default Store;
+// xs={1} md={2}
+// xs={1} md={2} className="g-3"

@@ -5,7 +5,7 @@ import { FaSpotify } from "react-icons/fa";
 
 const FooterNav = () => {
   return (
-    <>
+    <div>
       <Navbar className="mt-1" bg="info">
         <Container>
           <Navbar.Text
@@ -24,7 +24,7 @@ const FooterNav = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 export default FooterNav;

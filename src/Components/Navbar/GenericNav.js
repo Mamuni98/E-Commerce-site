@@ -2,7 +2,7 @@ import { Container, Navbar } from "react-bootstrap";
 
 const GenericNav = () => {
   return (
-    <>
+    <div>
       <Navbar className="mt-1" bg="secondary" expand>
         <Container className="justify-content-center">
           <Navbar.Text
@@ -17,7 +17,7 @@ const GenericNav = () => {
           </Navbar.Text>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 export default GenericNav;
