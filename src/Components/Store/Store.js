@@ -76,6 +76,7 @@ const Store = (props) => {
           {productsArr.map((product) => (
             <Product
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               image={product.imageUrl}
@@ -89,6 +90,7 @@ const Store = (props) => {
           {albumsArr.map((product) => (
             <Product
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               image={product.imageUrl}
