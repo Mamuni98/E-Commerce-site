@@ -1,0 +1,28 @@
+#about {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+section h1 {
+  font: 50px Franklin Gothic;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+#about div {
+  display: block;
+}
+#about img {
+  float: left;
+  margin: 20px 50px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+#about p {
+  font-size: 17px;
+  margin: 20px;
+  color: #777;
+}

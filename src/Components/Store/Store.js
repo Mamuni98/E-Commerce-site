@@ -1,4 +1,5 @@
 import { Button, Container } from "react-bootstrap";
+//import { NavLink } from "react-router-dom";
 import React from "react";
 import GenericNav from "../Navbar/GenericNav";
 import Product from "./Product";
@@ -98,14 +99,16 @@ const Store = (props) => {
           ))}
         </div>
         <div className="text-center">
-          <Button
-            variant="secondary"
-            className={classes.showcart}
-            style={{ color: "aqua", fontSize: "20px" }}
-            onClick={props.showCart}
-          >
-            See the cart
-          </Button>
+          
+            <Button
+              variant="secondary"
+              className={classes.showcart}
+              style={{ color: "aqua", fontSize: "20px" }}
+              onClick={props.showCart}
+            >
+              See the cart
+            </Button>
+          
         </div>
       </Container>
       <FooterNav />

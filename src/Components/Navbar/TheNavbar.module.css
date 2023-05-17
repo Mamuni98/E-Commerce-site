@@ -1,16 +1,20 @@
-.text {
-  font-family: Georgia;
+.list{
+  margin-inline: auto;
+}
+
+.list a{
+  font: 25px Arial;
+  margin-left: 10px;
+  margin-right: 10px;
   color: white;
-  font-size: 30px;
-  justify-content: center;
-  text-align: center;
+  text-decoration: none;
 }
-.home .home-text .text-mlr {
- margin-left: 430px;
- margin-right: 20px;
+.list a:hover, a.active{
+  color:blue;
+  text-decoration: underline;
 }
-.store .store-text .text-mr{
-  margin-right: 20px;
+.carticon{
+  position:fixed;
+  right:0;
+  top: 0.2cm;
 }
-/* margin-left: 400px;
-margin-right: 50px; */

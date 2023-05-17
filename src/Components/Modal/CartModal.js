@@ -1,34 +1,17 @@
 import { Offcanvas, Button } from "react-bootstrap";
 import CartItem from "../Cart/CartItem";
 import CartContext from "../contexts/cart-context";
-import { useContext } from "react";
-// const cartElements = [
-//   {
-//     id: "i1",
-//     title: "Colors",
-//     price: 100,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-//     quantity: 2,
-//   },
+import { useContext, useState } from "react";
 
-//   {
-//     id: "i2",
-//     title: "Black and white Colors",
-//     price: 50,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-//     quantity: 3,
-//   },
-
-//   {
-//     id: "i3",
-//     title: "Yellow and Black Colors",
-//     price: 70,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-//     quantity: 1,
-//   },
-// ];
 const CartModal = (props) => {
   const cartCntxt = useContext(CartContext);
+  // const [showCart, setShowCart] = useState(false);
+  // const showCartHandler = () => {
+  //   setShowCart(true);
+  // };
+  // const hideCartHandler = () => {
+  //   setShowCart(false);
+  // };
   return (
     <>
       <Offcanvas
@@ -66,7 +49,7 @@ const CartModal = (props) => {
             ))}
           </div>
           <div className="d-flex justify-content-end">
-            <h2>Total - Rs.{cartCntxt.totalPrice.toFixed(2)}</h2>
+            <h2>Total - Rs. {cartCntxt.totalPrice.toFixed(2)}</h2>
           </div>
 
           <Button variant="info" className="text-light m-5">
