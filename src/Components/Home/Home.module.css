@@ -4,3 +4,22 @@ flex-direction: column;
 justify-content: center;
 padding: 2rem;
 }
+.items {
+    display: flex;
+    flex: 80%;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+.items h2{
+    margin-inline: auto;
+    text-align: center;
+    font: 40px Franklin Gothic;
+    padding: 1.5rem;
+}
+.items div{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
