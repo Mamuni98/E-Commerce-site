@@ -44,12 +44,17 @@ export const CartProvider = (props) => {
       return prevTotal - existingCartItem.price * existingCartItem.amount;
     });
   };
+  const purchasedItems = () => {
+    setCartItems([]);
+    setTotalPrice(Number(0));
+  };
 
   const cartContext = {
     items: cartItems,
     totalPrice: totalPrice,
     addItem: addItemToCart,
     removeItem: removeItemFromCart,
+    purchased: purchasedItems,
   };
   return (
     <CartContext.Provider value={cartContext}>

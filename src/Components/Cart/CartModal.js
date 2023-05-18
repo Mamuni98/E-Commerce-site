@@ -1,17 +1,19 @@
 import { Offcanvas, Button } from "react-bootstrap";
-import CartItem from "../Cart/CartItem";
+import CartItem from "./CartItem";
 import CartContext from "../contexts/cart-context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const CartModal = (props) => {
   const cartCntxt = useContext(CartContext);
-  // const [showCart, setShowCart] = useState(false);
-  // const showCartHandler = () => {
-  //   setShowCart(true);
-  // };
-  // const hideCartHandler = () => {
-  //   setShowCart(false);
-  // };
+  const handlecartItems = () => {
+    if (cartCntxt.items.length === 0) {
+      alert("Your cart is empty. Please add items to purchase.");
+    }
+    else{
+      alert("Thank you for purchasing.")
+      cartCntxt.purchased();
+    }
+  };
   return (
     <>
       <Offcanvas
@@ -20,10 +22,10 @@ const CartModal = (props) => {
         placement="end"
         scroll="true"
       >
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header closeButton className="mt-4">
           <Offcanvas.Title
             className="fs-1 fw-bold"
-            style={{ marginLeft: "140px" }}
+            style={{ marginInline: "auto" }}
           >
             CART
           </Offcanvas.Title>
@@ -52,7 +54,11 @@ const CartModal = (props) => {
             <h2>Total - Rs. {cartCntxt.totalPrice.toFixed(2)}</h2>
           </div>
 
-          <Button variant="info" className="text-light m-5">
+          <Button
+            variant="info"
+            className="text-light m-5"
+            onClick={handlecartItems}
+          >
             PURCHASE
           </Button>
         </Offcanvas.Body>

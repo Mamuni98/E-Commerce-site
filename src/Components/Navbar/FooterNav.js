@@ -12,15 +12,29 @@ const FooterNav = () => {
             className="text-light"
             style={{
               marginBottom: "30px",
-              font: "40px Georgia"
+              font: "40px Georgia",
             }}
           >
             The Generics
           </Navbar.Text>
           <Navbar.Collapse className="justify-content-end">
-          <FaYoutube size="50px" color="red" style={{marginRight:"30px"}}/>
-          <FaSpotify size="40px" color="white"style={{marginRight:"30px"}}/>
-          <FaFacebookSquare size="40px" color="white"/>
+            <a href="https://www.youtube.com/" target="-blank">
+              <FaYoutube
+                size="50px"
+                color="red"
+                style={{ marginRight: "30px" }}
+              />
+            </a>
+            <a href="https://open.spotify.com/" target="-blank">
+              <FaSpotify
+                size="40px"
+                color="white"
+                style={{ marginRight: "30px" }}
+              />
+            </a>
+            <a href="https://www.facebook.com/" target="-blank">
+              <FaFacebookSquare size="40px" color="white" />
+            </a>
           </Navbar.Collapse>
         </Container>
       </Navbar>

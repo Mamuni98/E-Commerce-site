@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Store from "./Components/Store/Store";
 import About from "./Components/About/About";
-import CartModal from "./Components/Modal/CartModal";
+import CartModal from "./Components/Cart/CartModal";
 //import RootLayout from "./Components/Navbar/RootLayout";
 import ErrorPage from "./Components/Error/ErrorPage";
 import TheNavbar from "./Components/Navbar/TheNavbar";
@@ -31,8 +31,8 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <div>
-        <TheNavbar showOffcanvas={showCartHandler}/>
+      <>
+        <TheNavbar />
         <CartModal onShow={show} Hide={hideCartHandler}/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </div>
+      </>
     </BrowserRouter>
   );
 }

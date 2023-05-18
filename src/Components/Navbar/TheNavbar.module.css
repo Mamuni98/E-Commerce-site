@@ -1,20 +1,22 @@
 .list{
   margin-inline: auto;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
 }
 
 .list a{
   font: 25px Arial;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
   color: white;
   text-decoration: none;
 }
 .list a:hover, a.active{
-  color:blue;
+  color:rgb(16, 214, 244);
   text-decoration: underline;
 }
-.carticon{
+/* .carticon{
   position:fixed;
   right:0;
   top: 0.2cm;
-}
+} */
