@@ -32,7 +32,7 @@ const Home = () => {
           </div>
         </Container>
       </Navbar>
-      <Container>
+      <Container className="px-4">
       <div className={classes.items}>
         <h2>TOUR</h2>
         <div>

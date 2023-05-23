@@ -1,15 +1,26 @@
 .card {
- border-color: white;
+  border-color: white;
   margin: 50px;
 }
 .card-body {
   width: 290px;
   height: 290px;
 }
+/* .card-body img {
+  transform-origin: center center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  transition: ease-in 0.5s;
+  filter: brightness(100%);
+}
+.card-body:hover img {
+  transform: scale(1.1);
+  filter: brightness(130%);
+} */
 .title {
   text-align: center;
 }
 .addcart {
   margin-left: 97px;
-  color: white;
 }

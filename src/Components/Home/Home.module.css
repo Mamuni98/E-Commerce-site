@@ -9,12 +9,13 @@ padding: 2rem;
     flex: 80%;
     flex-direction: column;
     margin-bottom: 80px;
+    padding: 3rem;
 }
 .items h2{
     margin-inline: auto;
     text-align: center;
     font: 40px Franklin Gothic;
-    padding: 1.5rem;
+    margin-bottom: 3rem;
 }
 .items div{
     display: flex;

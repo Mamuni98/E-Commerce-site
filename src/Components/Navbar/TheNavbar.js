@@ -37,6 +37,14 @@ const TheNavbar = () => {
               >
                 About
               </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Contact Us
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -45,3 +53,4 @@ const TheNavbar = () => {
   );
 };
 export default TheNavbar;
+//activeClassName={classes.active}---> Version 5 react-router-dom

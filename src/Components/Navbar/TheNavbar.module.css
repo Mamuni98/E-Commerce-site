@@ -6,8 +6,8 @@
 
 .list a{
   font: 25px Arial;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 20px;
+  margin-right: 30px;
   color: white;
   text-decoration: none;
 }
@@ -15,8 +15,3 @@
   color:rgb(16, 214, 244);
   text-decoration: underline;
 }
-/* .carticon{
-  position:fixed;
-  right:0;
-  top: 0.2cm;
-} */
