@@ -7,6 +7,7 @@ import CartModal from "./Components/Cart/CartModal";
 import ErrorPage from "./Components/Error/ErrorPage";
 import TheNavbar from "./Components/Navbar/TheNavbar";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import ProductDetail from "./Components/Store/ProductDetail";
 import axios from "axios";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store showCart={showCartHandler} />} />
+        <Route path="/store/:productId" element={<ProductDetail/>} />
         <Route path="/about" element={<About />} />
         <Route
           path="/contact"

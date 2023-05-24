@@ -8,6 +8,7 @@ const CartContext = React.createContext({
 export const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(Number(0));
+  const [productItem, setProductItem] = useState({});
 
   const addItemToCart = (item) => {
     const existingItemIndex = cartItems.findIndex(
@@ -48,6 +49,9 @@ export const CartProvider = (props) => {
     setCartItems([]);
     setTotalPrice(Number(0));
   };
+  const setProductDetailHandler = (product) =>{
+    setProductItem(product);
+  }
 
   const cartContext = {
     items: cartItems,
@@ -55,6 +59,8 @@ export const CartProvider = (props) => {
     addItem: addItemToCart,
     removeItem: removeItemFromCart,
     purchased: purchasedItems,
+    productItem: productItem,
+    addProductDetail: setProductDetailHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>

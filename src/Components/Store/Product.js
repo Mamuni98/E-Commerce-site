@@ -2,6 +2,7 @@ import { Card, Button } from "react-bootstrap";
 import classes from "./Product.module.css";
 import CartContext from "../contexts/cart-context";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 const Product = (props) => {
   const cartCntxt = useContext(CartContext);
   const addToCartHandler = (event) => {
@@ -15,13 +16,22 @@ const Product = (props) => {
     };
     cartCntxt.addItem(items);
   };
+  const showProductDetailHandler = () => {
+    cartCntxt.addProductDetail(props);
+  };
 
   return (
     <div>
       <Card className="border border-light" style={{ margin: "50px" }}>
         <Card.Body className={classes["card-body"]}>
           <Card.Title className={classes.title}>{props.title}</Card.Title>
-          <Card.Img src={props.image} alt={props.title} />
+          <Link to={`/store/${props.id}`}>
+            <Card.Img
+              src={props.image}
+              alt={props.title}
+              onClick={showProductDetailHandler}
+            />
+          </Link>
           <Card.Text className="m-1">
             <span>Rs.{props.price}</span>
             <Button

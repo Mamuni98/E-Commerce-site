@@ -80,7 +80,7 @@ const Store = (props) => {
               key={product.id}
               id={product.id}
               title={product.title}
-              price={product.price}
+              price={Number(product.price)}
               image={product.imageUrl}
             />
           ))}
