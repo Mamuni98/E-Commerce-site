@@ -12,7 +12,7 @@ const CartIcon = (props) => {
     <div>
       <Button
         variant="outline-info"
-        style={{ position: "fixed", right: "0.2cm", top: "0.2cm", zIndex:"9999"}}
+        style={{ position: "fixed", right: "0.2cm", top: "0.5cm", zIndex:"9999"}}
         onClick={props.onClick}
       >
         <FaShoppingCart /> <Badge bg="info">{numberOfCartItems}</Badge>

@@ -1,8 +1,15 @@
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import classes from "./TheNavbar.module.css";
+import { useContext } from "react";
+import AuthContext from "../contexts/auth-context";
 
 const TheNavbar = () => {
+  const authCntxt = useContext(AuthContext);
+  const { IsLoggedIn } = authCntxt;
+  const logOutHandle = () => {
+    authCntxt.LogOut();
+  }
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="sm" sticky="top">
@@ -45,6 +52,33 @@ const TheNavbar = () => {
               >
                 Contact Us
               </NavLink>
+            </Nav>
+            <Nav className={classes.listB}>
+              {!IsLoggedIn && <NavLink
+                to="/signUp"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Sign Up
+              </NavLink>}
+              {!IsLoggedIn && <NavLink
+                to="/logIn"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Log In
+              </NavLink>}
+              {IsLoggedIn && <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Profile
+              </NavLink>}
+              {IsLoggedIn && <Button variant="info" className="mb-2" onClick={logOutHandle}>Log Out</Button>}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Store from "./Components/Store/Store";
 import About from "./Components/About/About";
@@ -9,8 +9,14 @@ import TheNavbar from "./Components/Navbar/TheNavbar";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import ProductDetail from "./Components/Store/ProductDetail";
 import axios from "axios";
+import SignUp from "./Components/Authentication/SignUp";
+import LogIn from "./Components/Authentication/LogIn";
+import Profile from "./Components/Authentication/Profile";
+import AuthContext from "./Components/contexts/auth-context";
 
 function App() {
+  const authCntxt = useContext(AuthContext);
+  const { IsLoggedIn } = authCntxt;
   const [show, setShow] = useState(false);
   const showCartHandler = () => {
     setShow(true);
@@ -36,13 +42,16 @@ function App() {
       <CartModal onShow={show} Hide={hideCartHandler} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store showCart={showCartHandler} />} />
-        <Route path="/store/:productId" element={<ProductDetail/>} />
-        <Route path="/about" element={<About />} />
+        <Route path="/store" element={IsLoggedIn ? <Store showCart={showCartHandler} /> : <Navigate replace to="/logIn"/>} />
+        <Route path="/store/:productId" element={<ProductDetail />} />
+        <Route path="/about" element={IsLoggedIn ? <About /> : <Navigate replace to="/logIn"/>} />
         <Route
           path="/contact"
           element={<ContactUs userDetail={saveUserDetailHandler} />}
         />
+        {!IsLoggedIn && <Route path="/signUp" element={<SignUp />} />}
+        {!IsLoggedIn && <Route path="/logIn" element={<LogIn />} />}
+        {IsLoggedIn && <Route path="/profile" element={<Profile />} />}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
@@ -50,4 +59,3 @@ function App() {
 }
 
 export default App;
-

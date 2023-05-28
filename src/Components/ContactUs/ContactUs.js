@@ -22,6 +22,7 @@ const ContactUs = (props) => {
         className="m-5 p-3"
         style={{ boxShadow: "0 2px 8px rgba(12, 89, 108, 0.26)" }}
       >
+        <h2 className="text-center mb-4">CONTACT US</h2>
         <Form onSubmit={formSubmitHandler}>
           <Form.Group className="mb-3" controlId="formUserName">
             <Form.Label>Username</Form.Label>
