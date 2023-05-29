@@ -3,8 +3,10 @@ import classes from "./Product.module.css";
 import CartContext from "../contexts/cart-context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../contexts/auth-context";
 const Product = (props) => {
   const cartCntxt = useContext(CartContext);
+  const authCntxt = useContext(AuthContext);
   const addToCartHandler = (event) => {
     event.preventDefault();
     const items = {
@@ -25,13 +27,13 @@ const Product = (props) => {
       <Card className="border border-light" style={{ margin: "50px" }}>
         <Card.Body className={classes["card-body"]}>
           <Card.Title className={classes.title}>{props.title}</Card.Title>
-          <Link to={`/store/${props.id}`}>
+          {authCntxt.IsLoggedIn && <Link to={`/store/${props.id}`}>
             <Card.Img
               src={props.image}
               alt={props.title}
               onClick={showProductDetailHandler}
             />
-          </Link>
+          </Link>}
           <Card.Text className="m-1">
             <span>Rs.{props.price}</span>
             <Button

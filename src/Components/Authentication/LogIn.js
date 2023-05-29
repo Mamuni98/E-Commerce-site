@@ -28,7 +28,7 @@ const LogIn = () => {
       if (response) {
         alert("Successfully Logged In");
       }
-
+      localStorage.setItem('email', email);
       history('/store');
 
     } catch (err) {

@@ -18,6 +18,7 @@ export const AuthContextProvider = (props) => {
   const logOutHandler = () => {
     setToken(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
     history("/");
   };
   const contextValue = {

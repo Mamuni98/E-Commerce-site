@@ -8,19 +8,19 @@ const CartModal = (props) => {
   const handlecartItems = () => {
     if (cartCntxt.items.length === 0) {
       alert("Your cart is empty. Please add items to purchase.");
-    }
-    else{
-      alert("Thank you for purchasing.")
+    } else {
+      alert("Thank you for purchasing.");
       cartCntxt.purchased();
     }
   };
+  //console.log(cartCntxt.items);
   return (
     <>
       <Offcanvas
-        show={props.onShow}
-        onHide={props.Hide}
         placement="end"
         scroll="true"
+        show={props.onShow}
+        onHide={props.Hide}
       >
         <Offcanvas.Header closeButton className="mt-4">
           <Offcanvas.Title
@@ -39,16 +39,18 @@ const CartModal = (props) => {
             <h3 className="fs-4 fw-bold text-decoration-underline">Quantity</h3>
           </div>
           <div className="d-flex flex-column">
-            {cartCntxt.items.map((item) => (
-              <CartItem
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                quantity={item.amount}
-                image={item.image}
-              />
-            ))}
+            {cartCntxt.items.map((item) => {
+              return (
+                <CartItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  price={item.price}
+                  quantity={item.amount}
+                  image={item.image}
+                />
+              );
+            })}
           </div>
           <div className="d-flex justify-content-end">
             <h2>Total - Rs. {cartCntxt.totalPrice.toFixed(2)}</h2>
@@ -67,7 +69,8 @@ const CartModal = (props) => {
   );
 };
 export default CartModal;
-
+// show={props.onShow}
+//         onHide={props.Hide}
 /* <Modal show>
 <Modal.Header>
   <Modal.Title>Shopping Cart</Modal.Title>

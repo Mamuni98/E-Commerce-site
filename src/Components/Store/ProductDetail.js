@@ -4,36 +4,40 @@ import CartContext from "../contexts/cart-context";
 import { Container, Card, CardGroup, Button } from "react-bootstrap";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
-const ProductDetail = () => {
+import CartIcon from "../Cart/CartIcon";
+const ProductDetail = (props) => {
   const cartCntxt = useContext(CartContext);
   const param = useParams();
   console.log(param.productId);
-  const addToCartHandler = () =>{
-    cartCntxt.addItem({...cartCntxt.productItem, amount:Number(1)})
-  }
+  const addToCartHandler = () => {
+    cartCntxt.addItem({ ...cartCntxt.product, amount: Number(1) });
+    alert("1 Item added to the cart");
+  };
   return (
     <>
+      <CartIcon onClick={props.showCart} />
       <Container className="w-70">
         <CardGroup className="m-3">
-          <Card className="p-3">
+          <Card className="p-3" style={{ borderColor: "white" }}>
             <Card.Body>
               <Card.Img
-                src={cartCntxt.productItem.image}
+                src={cartCntxt.product.image}
                 style={{ marginBottom: "10px" }}
               />
               <div className="text-center">
-                <Button variant="info" onClick={addToCartHandler}>Add to Cart</Button>
+                <Button variant="info" onClick={addToCartHandler}>
+                  Add to Cart
+                </Button>
               </div>
             </Card.Body>
           </Card>
-          <Card className="p-3">
+          <Card className="p-3" style={{ borderColor: "white" }}>
             <Card.Body>
               <Card.Title style={{ fontSize: "25px" }}>
-                {cartCntxt.productItem.title}
-              </Card.Title>
-              <span></span>
+                {cartCntxt.product.title}
+              </Card.Title>{" "}
               <Card.Subtitle className="text-info">
-                Rs. {cartCntxt.productItem.price.toFixed(2)}
+                Rs. {cartCntxt.product.price.toFixed(2)}
               </Card.Subtitle>
               <br />
               <div className="d-flex flex-reverse mb-1">
@@ -44,7 +48,8 @@ const ProductDetail = () => {
                 <AiOutlineStar size="20px" />
               </div>
               <Card.Text>
-                <h6>A good product</h6>
+                <span style={{ fontWeight: "bold" }}>A good product</span>
+                <br/>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Assumenda, sit! Velit a commodi quis, dicta deleniti voluptatum
                 quibusdam? Repellendus ducimus ea laudantium ex, esse quisquam
@@ -63,7 +68,8 @@ const ProductDetail = () => {
                 <AiOutlineStar size="20px" />
               </div>
               <Card.Text>
-                <h6>Awesome product</h6>
+                <span style={{ fontWeight: "bold" }}>Awesome product</span>
+                <br/>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Assumenda, sit! Velit a commodi quis, dicta deleniti voluptatum
                 quibusdam? Repellendus ducimus ea laudantium ex, esse quisquam

@@ -1,26 +1,43 @@
 import { Container, Form, Button, Card } from "react-bootstrap";
 import React, { useRef } from "react";
-
-const ContactUs = (props) => {
+import axios from "axios";
+const ContactUs = () => {
   const nameRef = useRef();
   const emailRef = useRef();
-  const passwordRef = useRef();
+  const phoneRef = useRef();
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const details = {
       name: nameRef.current.value,
       email: emailRef.current.value,
-      password: passwordRef.current.value,
+      number: phoneRef.current.value,
     };
-    props.userDetail(details);
+    userDetail(details);
     event.target.reset();
+  };
+  const userDetail = async (detail) => {
+    try {
+      //console.log(detail);
+      const response = await axios.put(
+        "https://e-commerce-cad78-default-rtdb.firebaseio.com/e-commerce.json",
+        detail
+      );
+      console.log(response.data);
+      if (response) {
+        alert("We'll contact you as soon as possible");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Container className="w-50">
       <Card
-        border="info"
         className="m-5 p-3"
-        style={{ boxShadow: "0 2px 8px rgba(12, 89, 108, 0.26)" }}
+        style={{
+          boxShadow: "0 2px 8px rgba(12, 89, 108, 0.26)",
+          backgroundColor: "rgb(234, 248, 250)",
+        }}
       >
         <h2 className="text-center mb-4">CONTACT US</h2>
         <Form onSubmit={formSubmitHandler}>
@@ -40,16 +57,19 @@ const ContactUs = (props) => {
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Phone Number</Form.Label>
             <Form.Control
-              type="password"
-              placeholder="Password"
-              ref={passwordRef}
+              type="tel"
+              pattern="[0-9]{10}"
+              placeholder="Enter your mobile number"
+              ref={phoneRef}
             />
           </Form.Group>
-          <Button variant="info" className="text-white" type="submit">
-            Submit
-          </Button>
+          <div className="text-center">
+            <Button variant="info" className="text-white" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
       </Card>
     </Container>

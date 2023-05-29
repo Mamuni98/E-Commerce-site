@@ -50,7 +50,7 @@ const TheNavbar = () => {
                   isActive ? classes.active : undefined
                 }
               >
-                Contact Us
+                Contact
               </NavLink>
             </Nav>
             <Nav className={classes.listB}>

@@ -1,11 +1,12 @@
 import { Button, Container } from "react-bootstrap";
+//import { Link } from "react-router-dom";
 import React from "react";
 import GenericNav from "../Navbar/GenericNav";
 import Product from "./Product";
 import FooterNav from "../Navbar/FooterNav";
 import classes from "./Store.module.css";
 import CartIcon from "../Cart/CartIcon";
-
+//const CartIcon = React.lazy(() => import("../Cart/CartIcon"));
 const productsArr = [
   {
     id: "a1",
@@ -75,29 +76,33 @@ const Store = (props) => {
           <h2>Merch</h2>
         </div>
         <div className={classes.product}>
-          {productsArr.map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              price={Number(product.price)}
-              image={product.imageUrl}
-            />
-          ))}
+          {productsArr.map((product) => {
+            return (
+              <Product
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={Number(product.price)}
+                image={product.imageUrl}
+              />
+            );
+          })}
         </div>
         <div className={classes.heading}>
           <h2>Music</h2>
         </div>
         <div className={classes.product}>
-          {albumsArr.map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              price={product.price}
-              image={product.imageUrl}
-            />
-          ))}
+          {albumsArr.map((product) => {
+            return (
+              <Product
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                price={product.price}
+                image={product.imageUrl}
+              />
+            );
+          })}
         </div>
         <div className="text-center">
           <Button
@@ -117,3 +122,4 @@ const Store = (props) => {
 export default Store;
 // xs={1} md={2}
 // xs={1} md={2} className="g-3"
+//onClick={props.showCart}
